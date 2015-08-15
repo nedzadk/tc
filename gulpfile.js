@@ -46,4 +46,4 @@ gulp.task('watch', function() {
   gulp.watch([path.WATCH], ['scripts']);
 });
 
-gulp.task('default', [ 'watch', 'scripts', 'browser', 'server' ]);
+gulp.task('default', [ 'scripts', 'browser', 'server', 'watch' ]);
