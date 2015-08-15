@@ -1,17 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Twitter Clone in React</title>
+  <title>Twitter Clone in React </title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">
+        Twitter Clone
+      </a>
+    </div>
+  </div>
+</nav>
 <div class="container">
 <div class="row">
-  <div id="tweet_list" class="col-md-9 col-md-push-3"></div>
-  <div id="profile_box" class="col-md-3 col-md-pull-9"></div>
+  <div id="profile_box" class="col-xs-5 col-md-2"></div>
+  <div id="tweet_list" class="col-xs-8 col-md-8"></div>
 </div>
 </div>
 <script src="dist/App.js"></script>

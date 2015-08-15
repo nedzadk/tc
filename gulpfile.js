@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var react = require('gulp-react');
 var browserify = require('browserify');
 var source = require("vinyl-source-stream");
 var exec = require('child_process').exec;
@@ -9,7 +8,7 @@ var reload = browserSync.reload;
 
 var path = {
   HTML: 'index.html',
-  WATCH: ['react_app/components/*.js','react_app/actions/*.js', 'react_app/stores/*.js','*.html'],
+  WATCH: ['react_app/components/*.js','react_app/actions/*.js', 'react_app/stores/*.js','react_app/*.html'],
   DEST: 'react_app/dist'
 };
 
@@ -19,7 +18,6 @@ gulp.task('scripts', function(){
   b.transform(reactify);
   b.add('react_app/App.js');
   return b.bundle()
-  //  .pipe(react())
     .pipe(source('App.js'))
     .pipe(gulp.dest(path.DEST));
 });
