@@ -1,8 +1,8 @@
 var gulp = require('gulp');
 var browserify = require('browserify');
+var reactify = require('reactify');
 var source = require("vinyl-source-stream");
 var exec = require('child_process').exec;
-var reactify = require('reactify');
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
 
@@ -12,21 +12,21 @@ var path = {
   DEST: 'react_app/dist'
 };
 
-// 
+//This part is making me sad
 gulp.task('scripts', function(){
   var b = browserify();
   b.transform(reactify);
   b.add('react_app/App.js');
   return b.bundle()
-    .pipe(source('App.js'))
-    .pipe(gulp.dest(path.DEST));
+  .pipe(source('App.js'))
+  .pipe(gulp.dest(path.DEST));
 });
 
 // Task to run Node server app
 gulp.task('server', function() {
-exec('node node_app/server.js', function (err, stdout, stderr) {
-  console.log(stdout);
-  console.log(stderr);
+  exec('node node_app/server.js', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
   });
 });
 
@@ -35,9 +35,9 @@ gulp.task('browser', function() {
   browserSync({
     server: {
       baseDir: 'react_app'
-      }
-    });
-    gulp.watch(['*.html', path.WATCH], {cwd: ''}, reload);
+    }
+  });
+  gulp.watch(['*.html', path.WATCH], {cwd: ''}, reload);
 });
 
 gulp.task('watch', function() {
