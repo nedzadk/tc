@@ -1,0 +1,5 @@
+module.exports = {
+  GET_TWEETS: 'GET_TWEETS',
+  POST_TWEET: 'POST_TWEET',
+  COUNT_TWEETS: 'COUNT_TWEETS'
+};
