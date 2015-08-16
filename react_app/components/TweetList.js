@@ -11,7 +11,7 @@ function getAppState() {
 
 var TweetList = React.createClass({
   getInitialState: function() {
-    TweetActions.getTweets();
+
     return getAppState();
   },
 

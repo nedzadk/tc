@@ -17,6 +17,7 @@ var TweetStore = assign({}, EventEmitter.prototype, {
   getTweets: function(){
     return _tweets;
   },
+
   addChangeListener: function(callback) {
     this.on('change', callback);
   },
