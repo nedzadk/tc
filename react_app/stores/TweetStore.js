@@ -3,7 +3,7 @@ var EventEmitter = require('events').EventEmitter;
 var assign = require('object-assign');
 
 var CHANGE_EVENT = 'change';
-var _tweets = {};
+var _tweets = [{username:'Dummy username', tweet: 'Dummy data'},{username:'Dummy username', tweet: 'Dummy data'}];
 
 function load_tweets(data){
   _tweets = data.item
@@ -32,8 +32,10 @@ AppDispatcher.register(function(payload){
 
   if (action.actionType = 'GET_TWEETS') {
     load_tweets(action);
+    TweetStore.getTweets();
+    TweetStore.emitChange();
   }
-  TweetStore.emitChange();
+
   return true;
 });
 

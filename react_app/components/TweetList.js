@@ -11,12 +11,12 @@ function getAppState() {
 
 var TweetList = React.createClass({
   getInitialState: function() {
-
     return getAppState();
   },
 
   componentDidMount: function() {
     TweetStore.addChangeListener(this._onChange);
+    TweetActions.getTweets();
   },
 
  componentWillUnmount: function() {
@@ -28,16 +28,19 @@ var TweetList = React.createClass({
     return (
       <div>
       <TweetInput />
+      { this.state.tweets.map(function(tweet){
+        return (
+        <div className="media">
+        <div className="media-left">
+        <img className="media-object" src="https://s3.amazonaws.com/uifaces/faces/twitter/mantia/48.jpg" alt="avatar"/>
+        </div>
+        <div className="media-body">
+        <h4 className="media-heading">{tweet.username}</h4>
+        {tweet.tweet}
+        </div>
+        </div>)
+      })}
 
-      <div className="media">
-      <div className="media-left">
-      <img className="media-object" src="https://s3.amazonaws.com/uifaces/faces/twitter/mantia/48.jpg" alt="avatar"/>
-      </div>
-      <div className="media-body">
-      <h4 className="media-heading">{console.log(this.state.tweets)}</h4>
-      Test something
-      </div>
-      </div>
       </div>
     )
   },

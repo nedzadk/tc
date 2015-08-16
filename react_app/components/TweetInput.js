@@ -1,4 +1,6 @@
 var React = require('react');
+var TweetStore = require('../stores/TweetStore');
+var TweetActions = require('../actions/TweetActions');
 
 var TweetInput = React.createClass({
   handleSubmit: function(e) {
@@ -16,6 +18,7 @@ var TweetInput = React.createClass({
       },
       data:{username: username_field, tweet: tweet_field},
       success: function(data) {
+        TweetActions.getTweets();
         this.setState({data: data});
       }.bind(this),
       error: function(xhr, status, err) {
