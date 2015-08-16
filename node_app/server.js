@@ -41,7 +41,7 @@ router.route('/tweets')
 
 //Making get call on /api/tweets fetches all tweet for user
 .get(function(req, res){
-  Tweet.find({ username: 'nedzad' }, function(err, tweets) {
+  Tweet.find({ username: 'nedzad' },null,{sort: {created_at: -1 }}, function(err, tweets) {
     if (err) {
       return res.send({error: 'Something went wrong!'});
     }
